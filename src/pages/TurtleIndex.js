@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'
 
 class TurtleIndex extends Component {
     render() {
@@ -7,7 +8,11 @@ class TurtleIndex extends Component {
             <div>
                 <h3>Index Page!</h3>
                 {this.props.turtles && this.props.turtles.map(turtle => {
-                  return <p key={turtle.id}>{turtle.name}</p>
+                  return(
+                    <p key={turtle.id}>
+                      <NavLink to={`/turtleshow/${turtle.id}`}>{turtle.name}</NavLink>
+                    </p>
+                  )
                 })}
             </div>
         );
