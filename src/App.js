@@ -33,7 +33,7 @@ class App extends Component {
 
           <Route exact path="/" component={Home} />
           <Route path="/turtleedit" component={TurtleEdit} />
-          <Route path="/turtleindex" component={TurtleIndex} />
+          <Route path="/turtleindex" render = {(props) => <TurtleIndex turtles={this.state.turtles}/>} />
           <Route path="/turtlenew" component={TurtleNew} />
           <Route path="/turtleshow" component={TurtleShow} />
           <Route component={NotFound} />
