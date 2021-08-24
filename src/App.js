@@ -33,9 +33,13 @@ class App extends Component {
 
           <Route exact path="/" component={Home} />
           <Route path="/turtleedit" component={TurtleEdit} />
-          <Route path="/turtleindex" render = {(props) => <TurtleIndex turtles={this.state.turtles}/>} />
+          <Route path="/turtleindex" render={(props) => <TurtleIndex turtles={this.state.turtles}/>} />
           <Route path="/turtlenew" component={TurtleNew} />
-          <Route path="/turtleshow" component={TurtleShow} />
+          <Route path="/turtleshow/:id" render={(props) =>{
+            let id = props.match.params.id
+            let turtle = this.state.turtles.find(turtle =>turtle.id === +id)
+            return <TurtleShow turtle={turtle} />
+          }}/>
           <Route component={NotFound} />
 
         </Switch>
