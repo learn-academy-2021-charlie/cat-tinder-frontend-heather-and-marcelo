@@ -24,7 +24,7 @@ class App extends Component {
     }
   }
   render(){
-    console.log(this.state.turtles)
+    // console.log(this.state.turtles)
     return (
       <Router>
         <Header />

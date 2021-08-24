@@ -1,6 +1,8 @@
 import React from 'react';
 import { Nav, NavItem, NavLink } from 'reactstrap';
 
+// need to conver these to class based components!!!
+
 const Footer = (props) => {
   return (
     <div>
