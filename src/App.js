@@ -13,7 +13,7 @@ import TurtleNew from './pages/TurtleNew';
 import TurtleShow from './pages/TurtleShow';
 import NotFound from './pages/NotFound';
 import turtles from './mockTurtle.js'
-
+import './App.css'
 
 
 class App extends Component {

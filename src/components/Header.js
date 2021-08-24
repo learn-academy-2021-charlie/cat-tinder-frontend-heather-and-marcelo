@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Logo from '../assets/turtle_header.jpeg'
-import '../App.css'
 class Header extends Component {
     render() {
         return (
-            <div className ="header">
-                <img className = "logo" src={Logo} alt="picture of a turtle" />
+            <div className="header">
+                <img className="logo" src={Logo} alt="picture of a turtle" />
                 <h3> Our Header! </h3>
                 <ul>
                   <li><a href="#">Test Link</a></li>
