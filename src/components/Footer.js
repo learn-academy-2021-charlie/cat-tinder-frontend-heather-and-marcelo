@@ -1,16 +1,33 @@
-import React, { Component } from 'react';
-import '../App.css'
+import React from 'react';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 
-class Footer extends Component {
-    render() {
-        return (
-            <div className="footer">
-                <h3> Our Footer! </h3>
-                <a href="#">Test Link</a>
-                <a href="#">Test Link</a>
-            </div>
-        );
-    }
+// need to conver these to class based components!!!
+
+const Footer = (props) => {
+  return (
+    <div>
+      <p>This is our Footer</p>
+      <Nav>
+        <NavItem>
+          <NavLink href="#">Link</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">Link</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">Another Link</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink disabled href="#">Disabled Link</NavLink>
+        </NavItem>
+      </Nav>
+      <hr />
+      {/* <p>Link Based</p>
+      <Nav>
+        <NavLink href="#">Link</NavLink> <NavLink href="#">Link</NavLink> <NavLink href="#">Another Link</NavLink> <NavLink disabled href="#">Disabled Link</NavLink>
+      </Nav> */}
+    </div>
+  );
 }
 
 export default Footer;
