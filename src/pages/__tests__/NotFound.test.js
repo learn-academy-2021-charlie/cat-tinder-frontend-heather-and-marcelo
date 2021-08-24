@@ -1,25 +1,20 @@
-// import App from './App';
 import React from 'react';
-// import Home from './pages/Home';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import NotFound from '../NotFound'
+import { children } from 'cheerio/lib/api/traversing';
 
-
-//Allows us to utilize the adapter we import in earlier, allowing us to call and render a component. 
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('when the page renders, notfound msg!', ()=>{
-    it('displays a notfound msg', ()=>{
+    it('displays a not found msg', ()=>{
       // arrange
-      const renderedNotFound = shallow(<NotFound />)
+      const notFound = shallow(<NotFound />)
       // act
-    //   const renderedHeader = renderedNotFound.find("Header") 
-    //   const renderedFooter = renderedNotFound.find("Footer")
-      const renderedNotFoundMsg = renderedNotFound.find("NotFound")
+      const renderedNotFoundMsg = notFound.find("h3")
       // assert
-    //   expect(renderedHeader.length).toEqual(1)
-    //   expect(renderedFooter.length).toEqual(1)
-      expect(renderedNotFoundMsg.length).toEqual(1)
+      console.log("not found msg debug", renderedNotFoundMsg.debug())
+      console.log("not found props,", renderedNotFoundMsg.props())
+      expect(renderedNotFoundMsg.props().className).toEqual('notFoundTitle')
     })
 })
