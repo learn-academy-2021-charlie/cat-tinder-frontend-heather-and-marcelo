@@ -1,7 +1,5 @@
-// import React, { Component } from 'react';
 import React, { useState } from 'react';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-// import Logo from '../assets/turtle_header.jpeg'
 
 
 const Header = (props) => {

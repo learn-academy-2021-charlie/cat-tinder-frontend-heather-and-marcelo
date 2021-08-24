@@ -4,7 +4,6 @@ import Home from './pages/Home';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-//Allows us to utilize the adapter we import in earlier, allowing us to call and render a component. 
 Enzyme.configure({ adapter: new Adapter() })
 
 describe('when the app renders', ()=>{
