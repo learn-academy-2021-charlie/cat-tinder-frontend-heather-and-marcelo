@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import { Redirect } from 'react-router-dom'
 
 class TurtleEdit extends Component {
 
@@ -10,7 +11,8 @@ class TurtleEdit extends Component {
           name: "",
           age: "",
           enjoys: ""
-        }
+        },
+        success: false
       }
   }
 
@@ -24,7 +26,7 @@ class TurtleEdit extends Component {
 
     handleSubmit = () => {
         this.props.updateTurtle(this.state.form, this.props.turtle.id)
-        // this.setState({ success: true })
+        this.setState({ success: true })
     }
 
 
@@ -72,6 +74,7 @@ class TurtleEdit extends Component {
                         Update your turtle
                     </Button>
                 </Form>
+                {this.state.success && <Redirect to={`/turtleshow/${this.props.turtle.id}`} />}
             </div>
         );
     }
