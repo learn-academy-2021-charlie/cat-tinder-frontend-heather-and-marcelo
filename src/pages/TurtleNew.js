@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import { Redirect } from 'react-router-dom'
 
 class TurtleNew extends Component {
 
@@ -10,7 +11,8 @@ class TurtleNew extends Component {
             name: "",
             age: "",
             enjoys: ""
-          }
+          },
+          success: false
         }
     }
 
@@ -24,9 +26,10 @@ class TurtleNew extends Component {
 
     handleSubmit = () => {
         this.props.createTurtle(this.state.form)
+        this.setState({ success: true })
     }
 
-
+    
     render() {
         return (
             <div>
@@ -34,7 +37,8 @@ class TurtleNew extends Component {
                 <Form>
                     <FormGroup>
                         <Label for="name">Name</Label>
-                        <Input 
+                        <Input
+                            className='inputs' 
                             type="text" 
                             name="name" 
                             placeholder="with a placeholder"
@@ -43,7 +47,8 @@ class TurtleNew extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Label for="age">Age</Label>
-                        <Input 
+                        <Input
+                            className='inputs' 
                             type="text" 
                             name="age" 
                             placeholder="with a placeholder"
@@ -52,7 +57,8 @@ class TurtleNew extends Component {
                     </FormGroup>
                     <FormGroup>
                         <Label for="enjoys">Enjoys</Label>
-                        <Input 
+                        <Input
+                            className='inputs' 
                             type="text" 
                             name="enjoys" 
                             placeholder="with a placeholder"
@@ -65,6 +71,7 @@ class TurtleNew extends Component {
                         Add new turtle
                     </Button>
                 </Form>
+                { this.state.success && <Redirect to="/turtleindex" />}
             </div>
             
         );
