@@ -28,6 +28,11 @@ class App extends Component {
     console.log(newTurtle)
   }
 
+  updateTurtle = (editturtle, id) => {
+    console.log("turtle:", editturtle)
+    console.log("id:", id)
+  }
+
 
   render(){
     // console.log(this.state.turtles)
@@ -38,11 +43,16 @@ class App extends Component {
         <Switch>
 
           <Route exact path="/" component={Home} />
-          <Route path="/turtleedit" component={TurtleEdit} />
+          <Route path="/turtleedit/:id" render={(props) =>{
+            let id = props.match.params.id
+            let turtle = this.state.turtles.find(turtle => turtle.id === +id)
+            return<TurtleEdit updateTurtle={this.updateTurtle} turtle={turtle} />
+          }}
+             />
           <Route path="/turtleindex" render={(props) => <TurtleIndex turtles={this.state.turtles}/>} />
-          <Route 
+          <Route
             path="/turtlenew"
-            render={(props) => <TurtleNew createTurtle={this.createTurtle}/>} 
+            render={(props) => <TurtleNew createTurtle={this.createTurtle}/>}
           />
           <Route path="/turtleshow/:id" render={(props) =>{
             let id = props.match.params.id
