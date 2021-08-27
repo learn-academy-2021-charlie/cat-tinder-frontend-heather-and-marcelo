@@ -66,6 +66,18 @@ class App extends Component {
   }
   /////
 
+  deleteTurtle = (id) => {
+    fetch(`http://localhost:3000/turtles/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json)
+    .then(payload => this.readTurtle())
+    .catch(errors => console.log("turtle update errors:", errors))
+  }
+
 
   render(){
     // console.log(this.state.turtles)
@@ -76,22 +88,27 @@ class App extends Component {
         <Switch>
 
           <Route exact path="/" component={Home} />
+
           <Route path="/turtleedit/:id" render={(props) =>{
             let id = props.match.params.id
             let turtle = this.state.turtles.find(turtle => turtle.id === +id)
             return<TurtleEdit updateTurtle={this.updateTurtle} turtle={turtle} />
           }}
              />
+
           <Route path="/turtleindex" render={(props) => <TurtleIndex turtles={this.state.turtles}/>} />
+
           <Route
             path="/turtlenew"
             render={(props) => <TurtleNew createTurtle={this.createTurtle}/>}
           />
+
           <Route path="/turtleshow/:id" render={(props) =>{
             let id = props.match.params.id
             let turtle = this.state.turtles.find(turtle =>turtle.id === +id)
-            return <TurtleShow turtle={turtle} />
+            return <TurtleShow turtle={turtle} deleteTurtle={ this.deleteTurtle }/>
           }}/>
+          
           <Route component={NotFound} />
 
         </Switch>
