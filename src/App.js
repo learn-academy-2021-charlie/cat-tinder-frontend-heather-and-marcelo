@@ -43,7 +43,8 @@ class App extends Component {
         "Content-Type": "application/json"
       },
     method: "POST"
-    }).then(response => response.json())
+    })
+    .then(response => response.json())
     .then(payload => this.readTurtle())
     .catch(errors => console.log("Turtle create errors:", errors))
     // lets ask about this! Why are we passing in payload as an argument but not using it?
@@ -52,6 +53,16 @@ class App extends Component {
   updateTurtle = (editturtle, id) => {
     console.log("turtle:", editturtle)
     console.log("id:", id)
+    fetch(`http://localhost:3000/turtles/${id}`, {
+      body: JSON.stringify(editturtle),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => response.json)
+    .then(payload => this.readTurtle)
+    .catch(errors => console.log("Turtle update errors:", errors))
   }
   /////
 
