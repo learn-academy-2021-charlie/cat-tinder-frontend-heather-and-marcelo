@@ -31,7 +31,7 @@ class TurtleShow extends Component {
                 </NavLink>
                 <NavLink to="/turtleindex" >
                     <Button onClick={ this.handleSubmit }>
-                        Delete Cat Profile
+                        Delete Turtle Profile
                     </Button>
                 </NavLink>
                 { this.state.success && <Redirect to="/turtleindex" />}
