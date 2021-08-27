@@ -1,11 +1,41 @@
-.logo{
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Architects+Daughter&display=swap');
+
+/* .logo{
   width: 50px;
   height: 50px;
-}
+} */
 .header{
   display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  background-color: #78C091;
+  color: #563635;
 }
+.links{
+  color: 563635;
+}
+.turtle-logo{
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  height: auto;
+
+}
+
+h3{
+  font-family: 'Amatic SC', cursive;
+}
+
 .footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: space-around;
+}
+
+.turtle-logo{
+  margin: auto;
+  width: 150px;
+
 }

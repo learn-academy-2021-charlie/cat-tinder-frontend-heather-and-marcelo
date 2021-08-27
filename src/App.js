@@ -36,7 +36,7 @@ class App extends Component {
   }
 
   createTurtle = (newTurtle) => {
-  // console.log(newTurtle)
+  console.log(newTurtle)
   fetch("http://localhost:3000/turtles", {
     body: JSON.stringify(newTurtle),
     headers: {
@@ -108,7 +108,7 @@ class App extends Component {
             let turtle = this.state.turtles.find(turtle =>turtle.id === +id)
             return <TurtleShow turtle={turtle} deleteTurtle={ this.deleteTurtle }/>
           }}/>
-          
+
           <Route component={NotFound} />
 
         </Switch>
