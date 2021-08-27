@@ -11,10 +11,10 @@ class Footer extends Component{
       {/* <p>This is our Footer</p>*/}
       <Nav>
         <NavItem>
-          <NavLink href="/">Home</NavLink>
+          <NavLink href="/" style={{color: "dark liver horses", textDecoration: 'none', fontFamily:'Amatic SC'}}>Home</NavLink >
         </NavItem>
         <NavItem>
-          <NavLink href="http://www.turtle-foundation.org/en/volunteering-and-jobs-cv-en/volunteering-cv/?gclid=CjwKCAjwmqKJBhAWEiwAMvGt6Pl25KIAHh0pV3ATsBzwvXTFA4otC20yNBOt-H5PnN19J30tWcSx4BoCNgUQAvD_BwE" target='blank'>Save the Turtles!</NavLink>
+          <NavLink href="http://www.turtle-foundation.org/en/volunteering-and-jobs-cv-en/volunteering-cv/?gclid=CjwKCAjwmqKJBhAWEiwAMvGt6Pl25KIAHh0pV3ATsBzwvXTFA4otC20yNBOt-H5PnN19J30tWcSx4BoCNgUQAvD_BwE" target='blank' style={{color: "dark liver horses", textDecoration: 'none', fontFamily:'Amatic SC'}}>Save the Turtles!</NavLink>
         </NavItem>
         {/*<NavItem>
           <NavLink href="#">Another Link</NavLink>

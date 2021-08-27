@@ -29,7 +29,7 @@ class TurtleNew extends Component {
         this.setState({ success: true })
     }
 
-    
+
     render() {
         return (
             <div>
@@ -38,42 +38,44 @@ class TurtleNew extends Component {
                     <FormGroup>
                         <Label for="name">Name</Label>
                         <Input
-                            className='inputs' 
-                            type="text" 
-                            name="name" 
+                            className='inputs'
+                            type="text"
+                            name="name"
                             placeholder="with a placeholder"
-                            onChange={ this.handleChange } 
+                            onChange={ this.handleChange }
                             value={ this.state.form.name }/>
                     </FormGroup>
                     <FormGroup>
                         <Label for="age">Age</Label>
                         <Input
-                            className='inputs' 
-                            type="text" 
-                            name="age" 
+                            className='inputs'
+                            type="text"
+                            name="age"
                             placeholder="with a placeholder"
-                            onChange={ this.handleChange } 
+                            onChange={ this.handleChange }
                             value={ this.state.form.age }/>
                     </FormGroup>
                     <FormGroup>
                         <Label for="enjoys">Enjoys</Label>
                         <Input
-                            className='inputs' 
-                            type="text" 
-                            name="enjoys" 
+                            className='inputs'
+                            type="text"
+                            name="enjoys"
                             placeholder="with a placeholder"
-                            onChange={ this.handleChange } 
+                            onChange={ this.handleChange }
                             value={ this.state.form.enjoys }/>
                     </FormGroup>
-                    <Button 
-                        name="submit" 
+                    <div className="button">
+                    <Button
+                        name="submit"
                         onClick={this.handleSubmit}>
                         Add new turtle
                     </Button>
+                    </div>
                 </Form>
                 { this.state.success && <Redirect to="/turtleindex" />}
             </div>
-            
+
         );
     }
 }

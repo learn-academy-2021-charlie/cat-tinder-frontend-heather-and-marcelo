@@ -13,10 +13,10 @@ const Header = (props) => {
             <img src={turtleLogo} alt="logo for Turtle Tinder" className="turtle-logo" />
               <header className="header">
                 <NavItem>
-                  <NavLink href="/turtleindex" className="links">Meet the Turtles!</NavLink>
+                  <NavLink href="/turtleindex" style={{color: "dark liver horses", textDecoration: 'none', fontFamily:'Amatic SC'}} >Meet the Turtles!</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/turtlenew">Create a Turtle</NavLink>
+                  <NavLink href="/turtlenew" style={{color: "dark liver horses", textDecoration: 'none', fontFamily:'Amatic SC'}}>Create a Turtle</NavLink>
                 </NavItem>
               </header>
             </div>

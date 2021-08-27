@@ -4,16 +4,16 @@
   width: 50px;
   height: 50px;
 } */
+
+
 .header{
   display: flex;
   justify-content: space-around;
   list-style-type: none;
   background-color: #78C091;
-  color: #563635;
+  font-size: 25px;
 }
-.links{
-  color: 563635;
-}
+
 .turtle-logo{
   display: flex;
   justify-content: center;
@@ -24,6 +24,15 @@
 
 h3{
   font-family: 'Amatic SC', cursive;
+  display: flex;
+  justify-content: center;
+}
+
+p{
+  font-family: 'Amatic SC', cursive;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .footer{
@@ -32,10 +41,21 @@ h3{
   width: 100%;
   display: flex;
   justify-content: space-around;
+  font-size: 25px;
+
 }
 
 .turtle-logo{
   margin: auto;
   width: 150px;
+}
 
+.button{
+  display: flex;
+  justify-content: space-around;
+}
+
+form {
+  margin-left: 20%;
+  margin-right: 20%;
 }
