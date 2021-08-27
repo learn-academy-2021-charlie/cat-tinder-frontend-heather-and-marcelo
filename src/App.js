@@ -12,7 +12,7 @@ import TurtleIndex from './pages/TurtleIndex';
 import TurtleNew from './pages/TurtleNew';
 import TurtleShow from './pages/TurtleShow';
 import NotFound from './pages/NotFound';
-import turtles from './mockTurtle.js'
+// import turtles from './mockTurtle.js'
 import './App.css'
 
 
@@ -20,8 +20,19 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      turtles: turtles
+      turtles: []
     }
+  }
+
+  componentDidMount(){
+    this.readTurtle()
+  }
+
+  readTurtle = () => {
+    fetch("http://localhost:3000/turtles")
+    .then(response => response.json())
+    .then(turtlesArray => this.setState({ turtles: turtlesArray }))
+    .catch(errors => console.log("Turtle read errors:", errors))
   }
 
   createTurtle = (newTurtle) =>{
