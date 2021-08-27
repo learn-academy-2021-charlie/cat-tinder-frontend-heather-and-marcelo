@@ -12,7 +12,7 @@ import TurtleIndex from './pages/TurtleIndex';
 import TurtleNew from './pages/TurtleNew';
 import TurtleShow from './pages/TurtleShow';
 import NotFound from './pages/NotFound';
-import turtles from './mockTurtle.js'
+// import turtles from './mockTurtle.js'
 import './App.css'
 
 
@@ -20,17 +20,62 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      turtles: turtles
+      turtles: []
     }
   }
 
-  createTurtle = (newTurtle) =>{
-    console.log(newTurtle)
+  componentDidMount(){
+    this.readTurtle()
+  }
+
+  readTurtle = () => {
+    fetch("http://localhost:3000/turtles")
+    .then(response => response.json())
+    .then(turtlesArray => this.setState({ turtles: turtlesArray }))
+    .catch(errors => console.log("Turtle read errors:", errors))
+  }
+
+  createTurtle = (newTurtle) => {
+  // console.log(newTurtle)
+  fetch("http://localhost:3000/turtles", {
+    body: JSON.stringify(newTurtle),
+    headers: {
+        "Content-Type": "application/json"
+      },
+    method: "POST"
+    })
+    .then(response => response.json())
+    .then(payload => this.readTurtle())
+    .catch(errors => console.log("Turtle create errors:", errors))
+    // lets ask about this! Why are we passing in payload as an argument but not using it?
   }
 
   updateTurtle = (editturtle, id) => {
     console.log("turtle:", editturtle)
     console.log("id:", id)
+    fetch(`http://localhost:3000/turtles/${id}`, {
+      body: JSON.stringify(editturtle),
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "PATCH"
+    })
+    .then(response => response.json)
+    .then(payload => this.readTurtle)
+    .catch(errors => console.log("Turtle update errors:", errors))
+  }
+  /////
+
+  deleteTurtle = (id) => {
+    fetch(`http://localhost:3000/turtles/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json)
+    .then(payload => this.readTurtle())
+    .catch(errors => console.log("turtle update errors:", errors))
   }
 
 
@@ -43,22 +88,27 @@ class App extends Component {
         <Switch>
 
           <Route exact path="/" component={Home} />
+
           <Route path="/turtleedit/:id" render={(props) =>{
             let id = props.match.params.id
             let turtle = this.state.turtles.find(turtle => turtle.id === +id)
             return<TurtleEdit updateTurtle={this.updateTurtle} turtle={turtle} />
           }}
              />
+
           <Route path="/turtleindex" render={(props) => <TurtleIndex turtles={this.state.turtles}/>} />
+
           <Route
             path="/turtlenew"
             render={(props) => <TurtleNew createTurtle={this.createTurtle}/>}
           />
+
           <Route path="/turtleshow/:id" render={(props) =>{
             let id = props.match.params.id
             let turtle = this.state.turtles.find(turtle =>turtle.id === +id)
-            return <TurtleShow turtle={turtle} />
+            return <TurtleShow turtle={turtle} deleteTurtle={ this.deleteTurtle }/>
           }}/>
+          
           <Route component={NotFound} />
 
         </Switch>
