@@ -25,15 +25,17 @@ class TurtleShow extends Component {
                 <p>{this.props.turtle && this.props.turtle.age}</p>
                 <p>{this.props.turtle && this.props.turtle.enjoys}</p>
 
-                <NavLink to={`/turtleedit/${this.props.turtle.id}`}>
-                  <Button>Edit Turtle Profile</Button>
+                <div className="button">
+                <NavLink to={`/turtleedit/${this.props.turtle.id}`} >
+                  <Button >Edit Turtle Profile</Button>
                 </NavLink>
-                <NavLink to="/turtleindex">
+                <NavLink to="/turtleindex" >
                     <Button onClick={ this.handleSubmit }>
-                        Delete Cat Profile
+                        Delete Turtle Profile
                     </Button>
                 </NavLink>
                 { this.state.success && <Redirect to="/turtleindex" />}
+                </div>
             </div>
         );
     }

@@ -9,7 +9,7 @@ class TurtleIndex extends Component {
                 <h3>Index Page!</h3>
                 {this.props.turtles && this.props.turtles.map(turtle => {
                   return(
-                    <p key={turtle.id}>
+                    <p className="paragraphs" key={turtle.id}>
                       <NavLink to={`/turtleshow/${turtle.id}`}>{turtle.name}</NavLink>
                     </p>
                   )

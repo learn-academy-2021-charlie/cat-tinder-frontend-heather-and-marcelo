@@ -68,11 +68,13 @@ class TurtleEdit extends Component {
                             value={ this.state.form.enjoys }
                         />
                     </FormGroup>
+                    <div className="button">
                     <Button
                         name="submit"
                         onClick={this.handleSubmit}>
                         Update your turtle
                     </Button>
+                    </div>
                 </Form>
                 {this.state.success && <Redirect to={`/turtleshow/${this.props.turtle.id}`} />}
             </div>
